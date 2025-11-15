@@ -1,18 +1,19 @@
-# React Crash Course
+# React Crash Course -- Complete Setup & Workflow Guide
 
 This guide documents the **exact steps** needed to follow the React
-Crash Course:\
+Crash Course:\*\*\
 https://youtu.be/LDB4uaJ87e0?si=t5u_DKu5nO38ONtR
 
 Tailwind v4 (2025) no longer generates a config file and uses a
-different setup, so this guide ensures compatibility with the course.
+different setup, so this guide ensures compatibility with the course by
+using **Tailwind v3**.
 
 ------------------------------------------------------------------------
 
 ## 🎯 Goal
 
-Set up a React project using **Vite**, then install **TailwindCSS v3**
-so that everything shown in the tutorial matches.
+Set up a React project using **Vite**, integrate **TailwindCSS v3**, and
+follow along with the course without version issues.
 
 ------------------------------------------------------------------------
 
@@ -26,8 +27,7 @@ In your terminal:
 npm create vite@latest your-project-name
 ```
 
-Then: 1. Enter your **project name** 2. Choose **React** 3. Choose
-**JavaScript**
+Then select: 1. **React** 2. **JavaScript**
 
 This command also creates the project folder.
 
@@ -40,12 +40,11 @@ npm install
 
 ------------------------------------------------------------------------
 
-## 📌 2. Install TailwindCSS v3 (Required for the 2024 course)
+## 📌 2. Install TailwindCSS v3 (Required for the 2024 Course)
 
 **Timestamp: 26:50 in the video**
 
-Because Tailwind v4 is now the default but the course uses v3, install
-the correct version manually:
+Install the correct Tailwind version:
 
 ``` bash
 npm install -D tailwindcss@3.4.1 postcss autoprefixer
@@ -63,7 +62,7 @@ This creates: - `tailwind.config.js` - `postcss.config.js`
 
 ## 📌 3. Configure `tailwind.config.js`
 
-Replace the content section with:
+Replace the `content` section with:
 
 ``` js
 /** @type {import('tailwindcss').Config} */
@@ -79,11 +78,9 @@ export default {
 }
 ```
 
-This ensures Tailwind scans your React components.
-
 ------------------------------------------------------------------------
 
-## 📌 4. Add Tailwind directives to your CSS
+## 📌 4. Add Tailwind Directives to Your CSS
 
 In `src/index.css`, add:
 
@@ -93,26 +90,22 @@ In `src/index.css`, add:
 @tailwind utilities;
 ```
 
-⚠️ **Note:**\
-Some Vite templates create an empty `index.css`.\
-This is normal --- simply add the three Tailwind lines manually.
+⚠️ **Note:** Some Vite templates create an empty `index.css`.\
+This is normal --- just add the three Tailwind lines manually.
 
 ------------------------------------------------------------------------
 
-## 📌 5. Enable Tailwind Mode in VS Code (Fix @tailwind warnings)
+## 📌 5. Enable Tailwind Mode in VS Code (Fix @tailwind Warnings)
 
-To unlock hover previews, autocomplete, and remove the "Unknown at rule
-@tailwind" underline:
+To unlock autocomplete, hover previews, and remove the underline:
 
-1.  Open `src/index.css`
-2.  Look at the bottom right of VS Code (language mode)
-3.  Click `CSS`
-4.  Switch to **Tailwind CSS**
+### **Option A --- Quick per-file fix**
+
+1.  Open `src/index.css`\
+2.  Bottom-right corner → click `CSS`\
+3.  Switch to **Tailwind CSS**
 
 ```
-
-This makes all `.css` files open in Tailwind mode and enables
-autocomplete inside `"className"` strings.
 
 ------------------------------------------------------------------------
 
@@ -124,7 +117,7 @@ Start the dev server:
 npm run dev
 ```
 
-In `App.jsx`, try:
+In `App.jsx`, add:
 
 ``` jsx
 <h1 className="text-3xl font-bold underline">
@@ -132,7 +125,67 @@ In `App.jsx`, try:
 </h1>
 ```
 
-If you see a large, underlined heading --- you're ready to continue the
-course.
+------------------------------------------------------------------------
+
+## 📌 7. Replace the Default `index.html` Theme
+
+**Timestamp: 39:50 min**
+
+Download the themed file:\
+https://github.com/bradtraversy/react-crash-2024/blob/main/\_theme_files/index.html
+
+Replace your existing `index.html` contents with it.
+
+### Comment or uncomment code
+
+-   VS Code shortcut: **Ctrl + /** (Win) or **Cmd + /** (Mac)
+
+### Change `class` → `className`
+
+React requires `className` instead of `class`.
+
+### Quickly replace all instances
+
+1.  Highlight one instance of `class`\
+2.  Press **Cmd + Shift + L** (Mac) / **Ctrl + Shift + L** (Win)\
+3.  Type: `className`
+
+------------------------------------------------------------------------
+
+## 📌 8. Create a `components` Folder
+
+**Timestamp: 42:20 min**
+
+Create:
+
+    /src/components
+
+------------------------------------------------------------------------
+
+## 📌 9. Add Images Folder & Logo
+
+**Timestamp: 43:55 min**
+
+Download the image:\
+https://github.com/bradtraversy/react-crash-2024/blob/main/\_theme_files/images/logo.png
+
+Create:
+
+    /src/assets/images
+
+Place `logo.png` inside.
+
+------------------------------------------------------------------------
+
+## 📌 10. Add Jobs Data (JSON file)
+
+**Timestamp: 55:10 min**
+
+Download the JSON file:\
+https://github.com/bradtraversy/react-crash-2024/blob/main/src/jobs.json
+
+Place it in:
+
+    /src/jobs.json
 
 ------------------------------------------------------------------------
