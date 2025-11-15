@@ -1,4 +1,10 @@
-# Ignore local data files
-data/
-*.db
-*.csv
+# Ignore ONLY large generated data files, not the entire folder
+data/*.db
+data/*.sqlite
+data/*.csv
+
+# Allow schema.sql and other small files in /data
+!data/schema.sql
+
+# Node modules (if React is used)
+node_modules/
