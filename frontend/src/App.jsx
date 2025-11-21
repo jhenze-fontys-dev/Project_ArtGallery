@@ -11,6 +11,11 @@ import JobPage, { jobLoader } from './pages/JobPage';
 import AddJobPage from './pages/AddJobPage';
 import EditJobPage from './pages/EditJobPage';
 import NotFoundPage from './pages/NotFoundPage';
+import CollectionsPage from './pages/CollectionsPage';
+import CollectionPage from './pages/CollectionPage';
+import AddArt from './pages/AddArt';
+import EditArt from './pages/EditArt';
+
 
 const App = () => {
   // Add New Job
