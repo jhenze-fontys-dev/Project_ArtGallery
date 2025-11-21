@@ -1,0 +1,37 @@
+{
+  "collections": [
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "category": "",
+      "cover_image_url": "",
+      "is_published": "",
+      "created_at": "",
+      "updated_at": "",
+      "created_by_user_id": ""
+    },
+        {
+      "id": "",
+      "name": "",
+      "description": "",
+      "category": "",
+      "cover_image_url": "",
+      "is_published": "",
+      "created_at": "",
+      "updated_at": "",
+      "created_by_user_id": ""
+    },
+        {
+      "id": "",
+      "name": "",
+      "description": "",
+      "category": "",
+      "cover_image_url": "",
+      "is_published": "",
+      "created_at": "",
+      "updated_at": "",
+      "created_by_user_id": ""
+    },
+  ]
+}
