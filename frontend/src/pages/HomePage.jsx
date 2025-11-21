@@ -1,17 +1,13 @@
 import Hero from '../components/Hero';
 import HomeCards from '../components/HomeCards';
-import JobListings from '../components/JobListings';
-import ViewAllJobs from '../components/VieuwAllJobs'
-
-
 const HomePage = () => {
   return (
     <>
       <Hero />
       <HomeCards />
-      <JobListings isHome={true}/>
-      <ViewAllJobs />
+      {/* TODO: Hier later ArtGallery content tonen i.p.v. jobs */}
     </>
-  )
-}
-export default HomePage
+  );
+};
+
+export default HomePage;
