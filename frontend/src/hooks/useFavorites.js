@@ -3,24 +3,33 @@ import { useState, useEffect } from "react";
 export default function useFavorites() {
   const [favorites, setFavorites] = useState([]);
 
-  // laad bij eerste render uit localStorage
+  // Bij eerste render: lees uit localStorage
   useEffect(() => {
-    const stored = localStorage.getItem("favorites");
-    if (stored) {
-      setFavorites(JSON.parse(stored));
+    try {
+      const stored = localStorage.getItem("favorites");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          setFavorites(parsed);
+        }
+      }
+    } catch (e) {
+      console.error("Fout bij lezen van favorites uit localStorage", e);
     }
   }, []);
 
-  // elke keer als favorites verandert -> opslaan
+  // Elke keer als favorites verandert: schrijf naar localStorage
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    try {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } catch (e) {
+      console.error("Fout bij schrijven van favorites naar localStorage", e);
+    }
   }, [favorites]);
 
   const toggleFavorite = (id) => {
     setFavorites((prev) =>
-      prev.includes(id)
-        ? prev.filter((fav) => fav !== id)  // verwijderen
-        : [...prev, id]                     // toevoegen
+      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
     );
   };
 

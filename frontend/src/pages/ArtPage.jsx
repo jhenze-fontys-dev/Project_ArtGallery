@@ -1,25 +1,23 @@
-import { useParams, Link } from 'react-router-dom';
-import useFavorites from '../hooks/useFavorites';
+import { useParams, Link } from "react-router-dom";
+import useFavorites from "../hooks/useFavorites";
 
 const ArtPage = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // string, bv "10"
   const { isFavorite, toggleFavorite } = useFavorites();
 
-  // Tijdelijk: dummy data op basis van het id
   const art = {
-    id,
+    id, // zelfde type als we in favorites opslaan
     title: `Titel van kunstwerk #${id}`,
-    artist: 'Onbekende kunstenaar',
-    year: 'Jaartal onbekend',
-    technique: 'Techniek onbekend',
+    artist: "Onbekende kunstenaar",
+    year: "Jaartal onbekend",
+    technique: "Techniek onbekend",
     description:
-      'Hier komt straks de echte beschrijving van het kunstwerk uit de database/API.',
-    image: `https://via.placeholder.com/600x400?text=Artwork+${id}`,
+      "Hier komt straks de echte beschrijving van het kunstwerk uit de database/API.",
+    image: "/placeholder.png", // tijdelijke lokale placeholder
   };
 
   const handleToggleFavorite = () => {
-    setIsFavorite((prev) => !prev);
-    // TODO: later koppelen aan backend / localStorage
+    toggleFavorite(art.id);
   };
 
   return (
@@ -36,22 +34,22 @@ const ArtPage = () => {
         </p>
 
         <button
-          onClick={() => toggleFavorite(art.id)}
-
+          onClick={handleToggleFavorite}
           className="mb-4 px-4 py-2 border rounded-md text-sm"
         >
-          {isFavorite(art.id) ? '★ Verwijder uit favorieten' : '☆ Voeg toe aan favorieten'}
+          {isFavorite(art.id)
+            ? "★ Verwijder uit favorieten"
+            : "☆ Voeg toe aan favorieten"}
         </button>
 
-        <img
+        {/* img mag, maar hoeft even niet */}
+        {/* <img
           src={art.image}
           alt={art.title}
           className="w-full h-auto rounded mb-4"
-        />
+        /> */}
 
         <p className="text-base text-gray-800 mb-6">{art.description}</p>
-
-        {/* Hier komen later: comments, meer details, etc. */}
       </div>
     </section>
   );
