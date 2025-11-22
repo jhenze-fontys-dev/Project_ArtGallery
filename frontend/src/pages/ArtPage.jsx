@@ -1,9 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
+import useFavorites from '../hooks/useFavorites';
 
 const ArtPage = () => {
   const { id } = useParams();
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   // Tijdelijk: dummy data op basis van het id
   const art = {
@@ -36,10 +36,11 @@ const ArtPage = () => {
         </p>
 
         <button
-          onClick={handleToggleFavorite}
+          onClick={() => toggleFavorite(art.id)}
+
           className="mb-4 px-4 py-2 border rounded-md text-sm"
         >
-          {isFavorite ? '★ Verwijder uit favorieten' : '☆ Voeg toe aan favorieten'}
+          {isFavorite(art.id) ? '★ Verwijder uit favorieten' : '☆ Voeg toe aan favorieten'}
         </button>
 
         <img
