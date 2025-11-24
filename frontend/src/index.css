@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .img-standard {
+    @apply w-64 h-auto object-cover rounded-lg;
+  }
+}

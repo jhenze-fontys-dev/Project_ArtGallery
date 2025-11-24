@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "De sterrennacht",
+    "originalTitle": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "year": 1889,
+    "museum": "Museum of Modern Art, New York",
+    "image": "src/assets/images/starry-night.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Mona Lisa",
+    "originalTitle": "La Gioconda",
+    "artist": "Leonardo da Vinci",
+    "year": 1503,
+    "museum": "Louvre, Parijs",
+    "image": "src/assets/images/mona-lisa.jpg"
+  },
+  {
+    "id": 3,
+    "title": "De Schreeuw",
+    "originalTitle": "The Scream",
+    "artist": "Edvard Munch",
+    "year": 1893,
+    "museum": "Nationaal Museum, Oslo",
+    "image": "src/assets/images/the-scream.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Guernica",
+    "artist": "Pablo Picasso",
+    "year": 1937,
+    "museum": "Museo Reina Sofía, Madrid",
+    "image": "src/assets/images/guernica.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Meisje met de parel",
+    "originalTitle": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "year": 1665,
+    "museum": "Mauritshuis, Den Haag",
+    "image": "src/assets/images/girl-with-a-pearl-earring.jpg"
+  }
+]

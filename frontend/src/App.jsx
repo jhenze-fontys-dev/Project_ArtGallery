@@ -11,6 +11,7 @@ import JobPage, { jobLoader } from './pages/JobPage';
 import AddJobPage from './pages/AddJobPage';
 import EditJobPage from './pages/EditJobPage';
 import NotFoundPage from './pages/NotFoundPage';
+import CollectionListings from './components/CollectionListings'; 
 
 const App = () => {
   // Add New Job
@@ -72,6 +73,12 @@ const router = createBrowserRouter(
       <Route
         path='*' element={<NotFoundPage />}
       />
+      
+      <Route 
+        path='/collections' 
+        element={<CollectionListings />} 
+      />
+
     </Route>
   )
 );
