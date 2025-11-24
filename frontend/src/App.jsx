@@ -11,7 +11,14 @@ import JobPage, { jobLoader } from './pages/JobPage';
 import AddJobPage from './pages/AddJobPage';
 import EditJobPage from './pages/EditJobPage';
 import NotFoundPage from './pages/NotFoundPage';
+
+//Art
 import CollectionListings from './components/CollectionListings'; 
+import ArtLayout from './layouts/ArtLayout';
+import NavArt from './components/NavArt';
+import ViewAllArt from './components/ViewAllArt';
+import ViewAllCollections from './components/ViewAllCollections';
+import HomePageArt from './pages/HomePageArt';
 
 const App = () => {
   // Add New Job
@@ -49,38 +56,49 @@ const updateJob = async (job) => {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+
+    <>
+      
+
     <Route path='/' element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route
-        path='/jobs'
+        path='jobs'
         element={<JobsPage />}
       />
+
       <Route 
-        path='/add-job'
+        path='add-job'
         element={<AddJobPage
         addJobSubmit={addJob}/>}
       />
       <Route
-        path='/edit-job/:id'
+        path='edit-job/:id'
         element={<EditJobPage updateJobSubmit={updateJob}/>}
         loader={jobLoader}
       />
       <Route
-        path='/jobs/:id'
+        path='jobs/:id'
         element={<JobPage deleteJob={ deleteJob }/>}
         loader={jobLoader}
       />
       <Route
         path='*' element={<NotFoundPage />}
       />
-      
-      <Route 
-        path='/collections' 
-        element={<CollectionListings />} 
-      />
 
+     
     </Route>
+    
+
+<Route path="/art" element={<ArtLayout />}>
+  <Route index element={<HomePageArt />} /> 
+  <Route path="collections/:id" element={<CollectionListings />} />
+  <Route path="allArt" element={<ViewAllArt />} />
+  <Route path="allCollections" element={<ViewAllCollections />} />
+</Route>
+  </>
   )
+  
 );
 
   return <RouterProvider router={router} />;

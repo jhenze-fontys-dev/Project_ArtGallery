@@ -1,46 +1,132 @@
 [
   {
-    "id": 1,
-    "title": "De sterrennacht",
-    "originalTitle": "The Starry Night",
-    "artist": "Vincent van Gogh",
-    "year": 1889,
-    "museum": "Museum of Modern Art, New York",
-    "image": "src/assets/images/starry-night.jpg"
-  },
-  {
-    "id": 2,
-    "title": "Mona Lisa",
-    "originalTitle": "La Gioconda",
-    "artist": "Leonardo da Vinci",
-    "year": 1503,
-    "museum": "Louvre, Parijs",
-    "image": "src/assets/images/mona-lisa.jpg"
-  },
-  {
-    "id": 3,
-    "title": "De Schreeuw",
-    "originalTitle": "The Scream",
-    "artist": "Edvard Munch",
-    "year": 1893,
-    "museum": "Nationaal Museum, Oslo",
-    "image": "src/assets/images/the-scream.jpg"
-  },
-  {
-    "id": 4,
-    "title": "Guernica",
-    "artist": "Pablo Picasso",
-    "year": 1937,
-    "museum": "Museo Reina Sofía, Madrid",
-    "image": "src/assets/images/guernica.jpg"
-  },
-  {
-    "id": 5,
-    "title": "Meisje met de parel",
-    "originalTitle": "Girl with a Pearl Earring",
-    "artist": "Johannes Vermeer",
-    "year": 1665,
-    "museum": "Mauritshuis, Den Haag",
-    "image": "src/assets/images/girl-with-a-pearl-earring.jpg"
-  }
+        "id": 1,
+        "title": "De sterrennacht",
+        "originalTitle": "The Starry Night",
+        "artist": "Vincent van Gogh",
+        "year": 1889,
+        "museum": "Museum of Modern Art, New York",
+        "image": "starry-night.jpg",
+        "collection_id": 1
+    },
+    {
+        "id": 2,
+        "title": "Mona Lisa",
+        "originalTitle": "La Gioconda",
+        "artist": "Leonardo da Vinci",
+        "year": 1503,
+        "museum": "Louvre, Parijs",
+        "image": "mona-lisa.jpg",
+        "collection_id": 2
+    },
+    {
+        "id": 3,
+        "title": "De Schreeuw",
+        "originalTitle": "The Scream",
+        "artist": "Edvard Munch",
+        "year": 1893,
+        "museum": "Nationaal Museum, Oslo",
+        "image": "the-scream.jpg",
+        "collection_id": 2
+    },
+    {
+        "id": 4,
+        "title": "Guernica",
+        "originalTitle": "Guernica",
+        "artist": "Pablo Picasso",
+        "year": 1937,
+        "museum": "Museo Reina Sofía, Madrid",
+        "image": "guernica.jpg",
+        "collection_id": 3
+    },
+    {
+        "id": 5,
+        "title": "Meisje met de parel",
+        "originalTitle": "Girl with a Pearl Earring",
+        "artist": "Johannes Vermeer",
+        "year": 1665,
+        "museum": "Mauritshuis, Den Haag",
+        "image": "girl-with-a-pearl-earring.jpg",
+        "collection_id": 3
+    },
+    {
+        "id": 6,
+        "title": "De aardappeleters",
+        "originalTitle": "The Potato Eaters",
+        "artist": "Vincent van Gogh",
+        "year": 1885,
+        "museum": "Van Gogh Museum, Amsterdam",
+        "image": "the-potato-eaters.jpg",
+        "collection_id": 4
+    },
+    {
+        "id": 7,
+        "title": "Het melkmeisje",
+        "originalTitle": "The Milkmaid",
+        "artist": "Johannes Vermeer",
+        "year": 1658,
+        "museum": "Rijksmuseum, Amsterdam",
+        "image": "the-milkmaid.jpg",
+        "collection_id": 4
+    },
+    {
+        "id": 8,
+        "title": "De Nachtwacht",
+        "originalTitle": "The Night Watch",
+        "artist": "Rembrandt van Rijn",
+        "year": 1642,
+        "museum": "Rijksmuseum, Amsterdam",
+        "image": "the-night-watch.jpg",
+        "collection_id": 5
+    },
+    {
+        "id": 9,
+        "title": "De Tuin der Lusten",
+        "originalTitle": "The Garden of Earthly Delights",
+        "artist": "Jheronimus Bosch",
+        "year": 1505,
+        "museum": "Museo del Prado, Madrid",
+        "image": "the-garden-of-earthly-delights.jpg",
+        "collection_id": 5
+    },
+    {
+        "id": 10,
+        "title": "De Kus",
+        "originalTitle": "The Kiss",
+        "artist": "Gustav Klimt",
+        "year": 1908,
+        "museum": "Österreichische Galerie Belvedere, Wenen",
+        "image": "the-kiss.jpg",
+        "collection_id": 6
+    },
+    {
+        "id": 11,
+        "title": "De Geboorte van Venus",
+        "originalTitle": "The Birth of Venus",
+        "artist": "Sandro Botticelli",
+        "year": 1486,
+        "museum": "Uffizi, Florence",
+        "image": "the-birth-of-venus.jpg",
+        "collection_id": 6
+    },
+    {
+        "id": 12,
+        "title": "Het Zonnebloemen-schilderij",
+        "originalTitle": "Sunflowers",
+        "artist": "Vincent van Gogh",
+        "year": 1888,
+        "museum": "Van Gogh Museum, Amsterdam",
+        "image": "sunflowers.jpg",
+        "collection_id": 7
+    },
+    {
+        "id": 13,
+        "title": "Impressie, zonsopgang",
+        "originalTitle": "Impression, Sunrise",
+        "artist": "Claude Monet",
+        "year": 1872,
+        "museum": "Musée Marmottan Monet, Parijs",
+        "image": "impression-sunrise.jpg",
+        "collection_id": 7
+    }
 ]

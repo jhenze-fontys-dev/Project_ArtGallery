@@ -1,7 +1,7 @@
-import Hero from '../components/Hero';
-import HomeCards from '../components/HomeCards';
-import JobListings from '../components/JobListings';
-import ViewAllJobs from '../components/VieuwAllJobs'
+import Hero from '../components/Jobs/Hero';
+import HomeCards from '../components/Jobs/HomeCards';
+import JobListings from '../components/Jobs/JobListings';
+import ViewAllJobs from '../components/Jobs/ViewAllJobs'
 
 
 const HomePage = () => {
