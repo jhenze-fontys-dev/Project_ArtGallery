@@ -23,16 +23,7 @@ const HomePage = () => {
           </div>
         </Link>
 
-        {/* Vacatures / Jobs */}
-        <Link to="/jobs" className="collection-card">
-          <h2 className="collection-card-title">Vacatures</h2>
-          <p className="collection-card-meta">
-            Help mee aan het museumproject.
-          </p>
-          <div className="collection-card-footer">
-            Bekijk openstaande functies en projecten.
-          </div>
-        </Link>
+        
 
         {/* Over / placeholder */}
         <div className="collection-card">
