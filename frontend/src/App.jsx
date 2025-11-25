@@ -9,10 +9,11 @@ import {
 //Art
 import CollectionListings from './components/CollectionListings'; 
 import ArtLayout from './layouts/ArtLayout';
-import NavArt from './components/NavArt';
+
 import ViewAllArt from './components/ViewAllArt';
 import ViewAllCollections from './components/ViewAllCollections';
 import HomePageArt from './pages/HomePageArt';
+import NotFoundPage from './pages/NotFoundPage'
 
 const App = () => {
   // Add New Job
@@ -62,6 +63,7 @@ const router = createBrowserRouter(
   <Route path="collections/:id" element={<CollectionListings />} />
   <Route path="allArt" element={<ViewAllArt />} />
   <Route path="allCollections" element={<ViewAllCollections />} />
+  <Route path="*" element={<NotFoundPage />} />
 </Route>
   </>
   )

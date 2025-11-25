@@ -1,17 +1,38 @@
-const CollectionListing = ({artwork}) => {
+import { useState } from "react";
 
-  
-return (
-<article className="collection-item">
-      <h3 className="collection-item-title">{artwork.title}</h3>
+const CollectionListing= ({ artwork }) => {
+   const imageSrc = `/images/${artwork.image}`;
+  const [enlarged, setEnlarged] = useState(false);
+
+  const toggleSize = () => {
+    setEnlarged(prev => !prev);
+  };
+
+  return (
+    <div
+      onClick={toggleSize}
+      className={`
+        transition-all duration-300 cursor-pointer 
+        ${enlarged ? "fixed inset-0 z-50 flex items-center justify-center bg-black/80" : ""}
+      `}
+    >
       <img
-        src={`/images/${artwork.image}`}
+        src={imageSrc}
         alt={artwork.title}
-        className="img-standard"
+        className={`
+          transition-all duration-300 
+          ${enlarged ? "max-h-[90vh] max-w-[90vw]" : "w-full h-auto rounded-lg shadow-lg"}
+        `}
       />
-    </article>
 
-  )
-}
+      {/* Optioneel: titel tonen in fullscreen */}
+      {enlarged && (
+        <div className="absolute bottom-4 text-white text-lg font-semibold">
+          {artwork.title}
+        </div>
+      )}
+    </div>
+  );
+};
 
-export default CollectionListing
+export default CollectionListing;
