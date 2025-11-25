@@ -8,9 +8,9 @@ export default function ArtLayout() {
           <div className="museum-logo">Museum</div>
 
           <nav className="museum-nav">
-            <Link to="/art">Home</Link>
-            <Link to="/art/allArt">Alle Kunst</Link>
-            <Link to="/art/allCollections">Alle Collecties</Link>
+            <Link to="/">Home</Link>
+            <Link to="/allArt">Alle Kunst</Link>
+            <Link to="/allCollections">Alle Collecties</Link>
           </nav>
         </div>
       </header>
