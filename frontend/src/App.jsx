@@ -21,6 +21,14 @@ import ViewAllArt from './components/ViewAllArt';
 import ViewAllCollections from './components/ViewAllCollections';
 import HomePageArt from './pages/HomePageArt';
 
+//Art
+import CollectionListings from './components/CollectionListings'; 
+import ArtLayout from './layouts/ArtLayout';
+import NavArt from './components/NavArt';
+import ViewAllArt from './components/ViewAllArt';
+import ViewAllCollections from './components/ViewAllCollections';
+import HomePageArt from './pages/HomePageArt';
+
 const App = () => {
   // Add New Job
   const addJob = async (newJob) => {
@@ -62,11 +70,14 @@ const router = createBrowserRouter(
       
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     
     
 
 <Route path="/" element={<ArtLayout />}>
 =======
+=======
+>>>>>>> Stashed changes
     <Route path='/' element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route
@@ -98,6 +109,9 @@ const router = createBrowserRouter(
     
 
 <Route path="/art" element={<ArtLayout />}>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   <Route index element={<HomePageArt />} /> 
   <Route path="collections/:id" element={<CollectionListings />} />
