@@ -13,6 +13,14 @@ import ViewAllArt from './components/ViewAllArt';
 import ViewAllCollections from './components/ViewAllCollections';
 import HomePageArt from './pages/HomePageArt';
 
+//Art
+import CollectionListings from './components/CollectionListings'; 
+import ArtLayout from './layouts/ArtLayout';
+import NavArt from './components/NavArt';
+import ViewAllArt from './components/ViewAllArt';
+import ViewAllCollections from './components/ViewAllCollections';
+import HomePageArt from './pages/HomePageArt';
+
 const App = () => {
   // Add New Job
   const addJob = async (newJob) => {
@@ -53,10 +61,44 @@ const router = createBrowserRouter(
     <>
       
 
+<<<<<<< Updated upstream
     
     
 
 <Route path="/" element={<ArtLayout />}>
+=======
+    <Route path='/' element={<MainLayout />}>
+      <Route index element={<HomePage />} />
+      <Route
+        path='jobs'
+        element={<JobsPage />}
+      />
+
+      <Route 
+        path='add-job'
+        element={<AddJobPage
+        addJobSubmit={addJob}/>}
+      />
+      <Route
+        path='edit-job/:id'
+        element={<EditJobPage updateJobSubmit={updateJob}/>}
+        loader={jobLoader}
+      />
+      <Route
+        path='jobs/:id'
+        element={<JobPage deleteJob={ deleteJob }/>}
+        loader={jobLoader}
+      />
+      <Route
+        path='*' element={<NotFoundPage />}
+      />
+
+     
+    </Route>
+    
+
+<Route path="/art" element={<ArtLayout />}>
+>>>>>>> Stashed changes
   <Route index element={<HomePageArt />} /> 
   <Route path="collections/:id" element={<CollectionListings />} />
   <Route path="allArt" element={<ViewAllArt />} />
