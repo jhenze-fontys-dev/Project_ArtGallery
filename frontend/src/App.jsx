@@ -4,30 +4,13 @@ import {
   createRoutesFromElements,
   RouterProvider
 } from 'react-router-dom';
-
-//Art
-import CollectionListings from './components/CollectionListings'; 
-import ArtLayout from './layouts/ArtLayout';
-import NavArt from './components/NavArt';
-import ViewAllArt from './components/ViewAllArt';
-import ViewAllCollections from './components/ViewAllCollections';
-import HomePageArt from './pages/HomePageArt';
-
-//Art
-import CollectionListings from './components/CollectionListings'; 
-import ArtLayout from './layouts/ArtLayout';
-import NavArt from './components/NavArt';
-import ViewAllArt from './components/ViewAllArt';
-import ViewAllCollections from './components/ViewAllCollections';
-import HomePageArt from './pages/HomePageArt';
-
-//Art
-import CollectionListings from './components/CollectionListings'; 
-import ArtLayout from './layouts/ArtLayout';
-import NavArt from './components/NavArt';
-import ViewAllArt from './components/ViewAllArt';
-import ViewAllCollections from './components/ViewAllCollections';
-import HomePageArt from './pages/HomePageArt';
+import MainLayout from './layouts/MainLayout';
+import HomePage from './pages/HomePage';
+import JobsPage from './pages/JobsPage';
+import JobPage, { jobLoader } from './pages/JobPage';
+import AddJobPage from './pages/AddJobPage';
+import EditJobPage from './pages/EditJobPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 //Art
 import CollectionListings from './components/CollectionListings'; 
@@ -77,18 +60,6 @@ const router = createBrowserRouter(
     <>
       
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    
-    
-
-<Route path="/" element={<ArtLayout />}>
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     <Route path='/' element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route
@@ -120,13 +91,6 @@ const router = createBrowserRouter(
     
 
 <Route path="/art" element={<ArtLayout />}>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   <Route index element={<HomePageArt />} /> 
   <Route path="collections/:id" element={<CollectionListings />} />
   <Route path="allArt" element={<ViewAllArt />} />
