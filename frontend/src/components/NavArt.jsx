@@ -22,7 +22,7 @@ export default function NavArt() {
           return (
             <Link
               key={id}
-              to={`/art/collections/${id}`}
+              to={`/collections/${id}`}
               className="collection-card"
             >
               <h2 className="collection-card-title">Collectie {id}</h2>

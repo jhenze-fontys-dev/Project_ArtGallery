@@ -13,7 +13,7 @@ const HomePage = () => {
       {/* Drie “tegels” naar belangrijke delen van je site */}
       <section className="collection-nav-grid">
         {/* Collecties */}
-        <Link to="/art" className="collection-card">
+        <Link to="/allCollections" className="collection-card">
           <h2 className="collection-card-title">Collecties</h2>
           <p className="collection-card-meta">
             Verken de verschillende kunstcollecties.
