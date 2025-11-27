@@ -1,21 +1,75 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import useFavorites from "../hooks/useFavorites";
 
 const ArtPage = () => {
-  const { id } = useParams(); // string, bv "10"
+  const { id } = useParams(); // MET objectID uit de URL, bv "2"
   const { isFavorite, toggleFavorite } = useFavorites();
 
-  const art = {
-    id, // zelfde type als we in favorites opslaan
-    title: `Titel van kunstwerk #${id}`,
-    artist: "Onbekende kunstenaar",
-    year: "Jaartal onbekend",
-    technique: "Techniek onbekend",
-    description:
-      "Hier komt straks de echte beschrijving van het kunstwerk uit de database/API.",
-    image: "/placeholder.png", // tijdelijke lokale placeholder
+  const [artData, setArtData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchArt = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const res = await fetch(
+          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
+        );
+
+        if (!res.ok) {
+          throw new Error(`Kan object ${id} niet ophalen`);
+        }
+
+        const data = await res.json();
+        setArtData(data);
+      } catch (err) {
+        setError(err.message || "Er ging iets mis bij het ophalen van het kunstwerk");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArt();
+  }, [id]);
+
+  const handleToggleFavorite = () => {
+    // we gebruiken id uit de URL als favorieten-ID
+    toggleFavorite(id);
   };
 
+  if (loading) {
+    return (
+      <section className="p-8 max-w-3xl mx-auto">
+        <p>Bezig met laden...</p>
+      </section>
+    );
+  }
+
+  if (error || !artData) {
+    return (
+      <section className="p-8 max-w-3xl mx-auto">
+        <Link to="/collections" className="text-blue-600 underline text-sm">
+          ← Terug naar collecties
+        </Link>
+        <p className="mt-4 text-red-600">
+          {error || "Kon geen gegevens voor dit kunstwerk laden."}
+        </p>
+      </section>
+    );
+  }
+
+  const {
+    title,
+    artistDisplayName,
+    objectDate,
+    medium,
+    primaryImageSmall,
+    objectURL,
+  } = artData;
 
   return (
     <section className="p-8 max-w-3xl mx-auto">
@@ -24,29 +78,49 @@ const ArtPage = () => {
       </Link>
 
       <div className="mt-4">
-        <h1 className="text-3xl font-bold mb-2">{art.title}</h1>
-        <p className="text-lg text-gray-700 mb-1">{art.artist}</p>
-        <p className="text-sm text-gray-500 mb-4">
-          {art.year} · {art.technique}
+        <h1 className="text-3xl font-bold mb-2">{title || `Kunstwerk #${id}`}</h1>
+
+        {artistDisplayName && (
+          <p className="text-lg text-gray-700 mb-1">{artistDisplayName}</p>
+        )}
+
+        <p className="text-sm text-gray-500 mb-2">
+          {objectDate && <span>{objectDate}</span>}
+          {objectDate && medium && " · "}
+          {medium && <span>{medium}</span>}
         </p>
 
         <button
-          onClick={() => toggleFavorite(art.id)}
+          onClick={handleToggleFavorite}
           className="mb-4 px-4 py-2 border rounded-md text-sm"
         >
-          {isFavorite(art.id)
+          {isFavorite(id)
             ? "★ Verwijder uit favorieten"
             : "☆ Voeg toe aan favorieten"}
         </button>
 
-        {/* img mag, maar hoeft even niet */}
-        {/* <img
-          src={art.image}
-          alt={art.title}
-          className="w-full h-auto rounded mb-4"
-        /> */}
+        {primaryImageSmall ? (
+          <img
+            src={primaryImageSmall}
+            alt={title}
+            className="w-full h-auto rounded mb-4"
+          />
+        ) : (
+          <p className="mb-4 text-sm text-gray-500">
+            Geen afbeelding beschikbaar voor dit object.
+          </p>
+        )}
 
-        <p className="text-base text-gray-800 mb-6">{art.description}</p>
+        {objectURL && (
+          <a
+            href={objectURL}
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-600 underline text-sm"
+          >
+            Bekijk dit kunstwerk op de website van The Met
+          </a>
+        )}
       </div>
     </section>
   );
