@@ -82,6 +82,8 @@
      color: var(--color-text-muted);
      padding-bottom: 0.2rem;
      border-bottom: 2px solid transparent;
+     color: var(--color-text);
+     border-bottom-color: var(--color-primary);
    }
    
    .site-nav__link:hover {

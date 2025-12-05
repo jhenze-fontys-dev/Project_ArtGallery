@@ -63,7 +63,10 @@ const CollectionsPage = () => {
                 <div className="collection-card__image-wrapper">
                   {collection.cover_image_url ? (
                     <img
-                      src={collection.cover_image_url}
+                      src={
+                        collection.cover_image_url ||
+                        "https://www.bcinformatica.nl/a6bg8/cypresses.png"
+                      }
                       alt={collection.name}
                       className="collection-card__image"
                     />

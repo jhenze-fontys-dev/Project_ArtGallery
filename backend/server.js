@@ -82,6 +82,75 @@ app.get("/api/collections/:id/artworks", (req, res) => {
   }
 });
 
+// FAVORIETEN (user_id = 1)
+// GET /api/favorites - lijst favorieten
+app.get("/api/favorites", (req, res) => {
+  try {
+    console.log("GET /api/favorites");
+
+    const rows = db
+      .prepare(
+        `SELECT id, user_id, met_object_id, created_at
+         FROM favorites
+         WHERE user_id = 1
+         ORDER BY created_at DESC`
+      )
+      .all();
+
+    console.log("Favorieten uit DB:", rows);
+    res.json(rows);
+  } catch (err) {
+    console.error("Fout bij ophalen favorieten:", err.message, err);
+    res.status(500).json({ error: "Kon favorieten niet ophalen" });
+  }
+});
+
+// POST /api/favorites - favoriet toevoegen
+app.post("/api/favorites", (req, res) => {
+  try {
+    console.log("POST /api/favorites, body =", req.body);
+
+    const { metObjectId } = req.body;
+
+    if (!metObjectId) {
+      console.warn("Geen metObjectId in body");
+      return res.status(400).json({ error: "metObjectId is verplicht" });
+    }
+
+    const stmt = db.prepare(
+      `INSERT OR IGNORE INTO favorites (user_id, met_object_id)
+       VALUES (1, ?)`
+    );
+    const result = stmt.run(String(metObjectId));
+
+    console.log("Resultaat INSERT OR IGNORE:", result);
+
+    res.status(201).json({ met_object_id: String(metObjectId) });
+  } catch (err) {
+    console.error("Fout bij toevoegen favoriet:", err.message, err);
+    res.status(500).json({ error: "Kon favoriet niet toevoegen" });
+  }
+});
+
+// DELETE /api/favorites/:metObjectId - favoriet verwijderen
+app.delete("/api/favorites/:metObjectId", (req, res) => {
+  try {
+    const metObjectId = req.params.metObjectId;
+    console.log("DELETE /api/favorites/", metObjectId);
+
+    const stmt = db.prepare(
+      `DELETE FROM favorites
+       WHERE user_id = 1 AND met_object_id = ?`
+    );
+    const result = stmt.run(String(metObjectId));
+
+    console.log("Resultaat DELETE:", result);
+    res.status(204).end();
+  } catch (err) {
+    console.error("Fout bij verwijderen favoriet:", err.message, err);
+    res.status(500).json({ error: "Kon favoriet niet verwijderen" });
+  }
+});
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Backend API luistert op http://localhost:${PORT}`);

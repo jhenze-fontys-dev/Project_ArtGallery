@@ -1,15 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const linkClass = ({ isActive }) =>
-    isActive
-      ? 'site-nav__link'
-      : 'site-nav__link';
+    'site-nav__link' + (isActive ? ' site-nav__link--active' : '');
 
   return (
     <header className="site-header">
       <div className="site-header__logo">
-        Virtuele Kunstgalerij
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          VIRTUELE KUNSTGALERIJ
+        </Link>
       </div>
       <nav className="site-nav">
         <NavLink to="/collections" className={linkClass}>
@@ -27,4 +27,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
